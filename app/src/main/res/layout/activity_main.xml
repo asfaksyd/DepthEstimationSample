@@ -18,6 +18,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/flip_camera_icon"
+        android:tint="@color/black"
         android:focusable="true" />
 
     <androidx.constraintlayout.widget.Guideline
