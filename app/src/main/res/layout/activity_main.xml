@@ -10,16 +10,16 @@
         android:id="@+id/flip_camera_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
         android:backgroundTint="#FFFFFF"
+        android:tint="@color/black"
         android:clickable="true"
         app:fabSize="normal"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/guideCenterTop"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/flip_camera_icon"
-        android:tint="@color/black"
-        android:focusable="true" />
+        app:srcCompat="@drawable/flip_camera_icon" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideCenterFAB"
@@ -46,11 +46,53 @@
         android:id="@+id/camera_preview_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/guideCenterTop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" >
 
     </androidx.camera.view.PreviewView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideOverlayStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent=".1"
+        android:orientation="vertical" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideOverlayEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent=".9"
+        android:orientation="vertical" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideOverlayBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent=".9"
+        android:orientation="horizontal" />
+
+    <com.akeso.depthestimationapp.DrawingOverlay
+        android:id="@+id/camera_drawing_overlay"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/guideOverlayEnd"
+        app:layout_constraintStart_toEndOf="@id/guideOverlayStart"
+        app:layout_constraintTop_toBottomOf="@id/guideCenterBottom" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textDepthValue"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:text=""
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideOverlayBottom" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
